@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>RegistrationForm_v6 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{/css/login/style.css}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <img th:src="@{https://www.gymcompany.es/media/wysiwyg/landings/gtsbg.jpg}" alt="">
+            </div>
+            <form th:action="@{/Clientes/salvar}" th:object="${clientes}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <h3>Únete a JMFIT</h3>
+                <div class="form-row">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" th:field="*{nombre}" required name="nombre">
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" th:field="*{apellidos}" required name="apellidos">
+                </div>
+                <div class="form-row">
+                    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" th:field="*{email}" required name="email">
+                    <input type="number" class="form-control" id="peso" placeholder="Peso (kg)" th:field="*{peso}" required name="peso">
+                </div>
+                <div class="form-row">
+                    <input type="text" class="form-control" id="usuario" placeholder="Usuario" th:field="*{usuario}" required name="usuario">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" th:field="*{password}" required name="password">
+                </div>
+                <div>
+                    <button class="button" type="submit">AGREGAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/login/plugins.js}"></script>
+</body>
+
+</html>

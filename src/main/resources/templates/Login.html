@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>LoginForm_v6 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet"
+          th:href="@{/css/login/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css}">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" th:href="@{/css/login/style.css}">
+</head>
+<style>
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://media.istockphoto.com/photos/gym-background-with-fitness-equipment-picture-id1212703819?b=1&k=20&m=1212703819&s=170667a&w=0&h=3GX1WAg9UCc-jwPIZmyLKcWx6-68cCYCrjqGMZBpHes=') no-repeat center center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .admin-button {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-container {
+        display: none;
+    }
+
+    .form-container.active {
+        display: block;
+    }
+</style>
+
+<body>
+
+<div class="wrapper">
+    <div class="inner">
+        <div class="image-holder">
+            <img th:src="@{https://www.gymcompany.es/media/wysiwyg/landings/gtsbg.jpg}" alt="">
+        </div>
+        <div id="login-form-container" class="form-container active">
+            <form id="login-form" action="/Clientes/ingresar" method="post">
+                <h3>Iniciar Sesión en JMFIT</h3>
+                <div class="form-row">
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+                </div>
+                <div class="form-row">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                           required>
+                </div>
+                <div th:if="${authenticationFailed}" style="color: red;">
+                    <p th:text="${errorMessage}"></p>
+                </div>
+                <div class="form-row">
+                    <p>¿No tienes una cuenta? <a th:href="@{/Clientes/new}">Regístrate aquí</a></p>
+                </div>
+                <input type="submit" value="INGRESAR"/>
+            </form>
+        </div>
+
+        <div id="admin-form-container" class="form-container">
+            <header>ADMINISTRADOR</header>
+            <hr style="border: 2px solid white;">
+            <form action="/administrador/ingresar" method="post">
+                <input class="form-control" type="text" id="usuario" name="usuario" placeholder="Usuario" required/>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Contraseña" required/>
+                <div th:if="${authenticationFailed}" style="color: red;">
+                    <p th:text="${errorMessage}"></p>
+                </div>
+                <input type="submit" value="INGRESAR"/>
+            </form>
+        </div>
+    </div>
+    <button class="admin-button" id="showAdminBtn">Admin</button>
+</div>
+
+<script th:src="@{/js/login/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/login/plugins.js}"></script>
+<script>
+    (function ($) {
+        "use strict";
+
+        // Mostrar formulario de Admin cuando se hace clic en el botón
+        $("#showAdminBtn").on("click", function () {
+            $("#login-form-container").removeClass("active");
+            $("#admin-form-container").addClass("active");
+        });
+
+    })(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title> JMFIT </title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+	<link rel="stylesheet" th:href="@{/css/slicknav.css}">
+	<link rel="stylesheet" th:href="@{/css/flaticon.css}">
+	<link rel="stylesheet" th:href="@{/css/gijgo.css}">
+	<link rel="stylesheet" th:href="@{/css/animate.min.css}">
+	<link rel="stylesheet" th:href="@{/css/animated-headline.css}">
+	<link rel="stylesheet" th:href="@{/css/magnific-popup.cs}">
+	<link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+	<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+	<link rel="stylesheet" th:href="@{/css/slick.css}">
+	<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<!-- ? Preloader Start -->
+	<div id="preloader-active">
+		<div class="preloader d-flex align-items-center justify-content-center">
+			<div class="preloader-inner position-relative">
+				<div class="preloader-circle"></div>
+				<div class="preloader-img pere-text">
+					<img th:src="@{/img/logo/loder1.png}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Preloader Start -->
+	<header>
+		<div class="slider-area position-relative">
+			<div class="slider-active">
+				<!-- Single Slider -->
+				<div class="single-slider slider-height d-flex align-items-center">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
+								<div class="hero__caption">
+									<span data-animation="fadeInLeft" data-delay="0.1s">PAGINA ADMNISTRATIVA</span>
+									<h1 data-animation="fadeInLeft" data-delay="0.4s">FORMULARIO ADMINS</h1>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+		<!--? Header Start -->
+		<div class="header-area header-transparent">
+			<div class="main-header header-sticky">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<!-- Logo -->
+						<div class="">
+							<div class="logo">
+								<a href="index.html"><img th:src="@{/img/logo/logo1.png}" alt=""></a>
+							</div>
+						</div>
+						<div class="col-xl-10 col-lg-10 col-md-10">
+							<div class="menu-main d-flex align-items-center justify-content-end">
+								<!-- Main-menu -->
+								<div class="main-menu f-right d-none d-lg-block">
+									<nav>
+										<ul id="navigation">
+											<li><a th:href="@{/InicioAdmin/}">Inicio</a></li>
+									
+											<li><a th:href="@{/Clientes/}">Cliente</a></li>
+											<li><a th:href="@{/administrador/}">Admin</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div class="header-right-btn f-right d-none d-lg-block ml-30">
+									<a th:href="@{/index/}" class="btn header-btn">Cerrar Sesion</a>
+								</div>
+							</div>
+						</div>
+						<!-- Mobile Menu -->
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header End -->
+	</header>
+
+	<main>
+		<div class="container">
+			<section class="about-area section-padding30">
+				<div class="slider-active">
+					<section class="intro">
+						<div class="single-slider slider-height d-flex align-items-center">
+							<div class="mask d-flex align-items-center" style="background-color: rgba(0,0,0,.35);">
+								<div class="container">
+									<div class="row justify-content-center">
+										<div class="col-12">
+											<div class="container bg-white my-5 p-5 rounded">
+												<div class="table-responsive" data-mdb-perfect-scrollbar="true"
+													style="position: relative; height: 90vh;">
+													<table class="table">
+														<thead>
+															<tr>
+																<th scope="col">NOMBRE</th>
+																<th scope="col">APELLIDO</th>
+																<th scope="col">CEDULA</th>
+																<th scope="col">TELEFONO</th>
+																<th scope="col">CORREO</th>
+																<th scope="col">USUARIO</th>
+																<th scope="col">CLAVE</th>
+																<td><strong>Editar</strong></td>
+																<td><strong>Eliminar</strong></td>
+															</tr>
+														</thead>
+														<tbody>
+															<tr th:each="administrador : ${administrador}">
+																<td style="font-size: 18px;">[[ ${administrador.nombre}
+																	]]
+																</td>
+																<td style="font-size: 18px;">[[
+																	${administrador.apellido} ]]
+																</td>
+																<td style="font-size: 18px;">[[ ${administrador.cedula}
+																	]]
+																</td>
+																<td style="font-size: 18px;">[[
+																	${administrador.telefono} ]]</td>
+																<td style="font-size: 18px;">[[ ${administrador.correo}
+																	]]
+																</td>
+																<td style="font-size: 18px;">[[ ${administrador.usuario}
+																	]]
+																</td>
+																<td style="font-size: 18px;">[[
+																	${administrador.password} ]]
+																</td>
+																<td style="font-size: 18px;">
+																	<a class="mx-3 text-warning"
+																		th:href="@{/administrador/edit/{id}(id = ${administrador.id})}">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			width="16" height="16" fill="currentColor"
+																			class="bi bi-pencil-square edit-icon"
+																			viewBox="0 0 16 16">
+																			<path
+																				d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+																			<path fill-rule="evenodd"
+																				d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+																		</svg>
+																	</a>
+																</td>
+																<td>
+																	<a class="mx-3 text-danger"
+																		th:href="@{/administrador/delete/{id}(id = ${administrador.id})}">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			width="16" height="16" fill="currentColor"
+																			class="bi bi-x-square" viewBox="0 0 16 16">
+																			<path
+																				d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+																			<path
+																				d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+																		</svg>
+																	</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>
+			<div style="text-align: center;">
+				<a th:href="@{/administrador/new}" class="btn btn-primary"
+					style="background-color:rgb(0, 255, 255); box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); margin-top: 2%; color: aliceblue; font-size: 120%; border-radius: 10px; border: rgb(0, 255, 255);">
+					AÑADIR
+				</a>
+			</div>
+		</div>
+	</main>
+
+
+	<footer>
+		<!--? Footer Start-->
+		<div class="footer-area section-bg" th:data-background="@{/img/gallery/section_bg03.png}">
+			<div class="container">
+				<div class="footer-top footer-padding">
+					<!-- Footer Menu -->
+					<div class="row d-flex justify-content-between">
+						<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+							<div class="single-footer-caption mb-50">
+								<div class="footer-tittle">
+									<h4>GYM</h4>
+									<ul>
+										<li><a href="#">Conocenos</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+							<div class="single-footer-caption mb-50">
+								<div class="footer-tittle">
+									<h4>Horarios</h4>
+									<ul>
+										<li><a href="#">Lunes 11am-7pm</a></li>
+										<li><a href="#"> Martes-Viernes 11am-8pm</a></li>
+										<li><a href="#"> Sabados 10am-6pm</a></li>
+										<li><a href="#"> Domingo 11am-6pm</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+							<div class="single-footer-caption mb-50">
+								<!-- logo -->
+								<div class="footer-logo">
+									<a th:href="@{/index}">
+										<img src="@{/img/logo/logo1.png}" alt="">
+									</a>
+								</div>
+								<div class="footer-tittle">
+									<div class="footer-pera">
+										<p class="info1">Dedicación y persistencia: el camino hacia la mejor versión de
+											ti</p>
+									</div>
+								</div>
+								<!-- Footer Social -->
+								<div class="footer-social">
+									<a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+									<a href=""><i class="fab fa-twitter"></i></a>
+									<a href="#"><i class="fas fa-globe"></i></a>
+									<a href="#"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<div class="row d-flex align-items-center">
+						<div class="col-lg-12">
+							<div class="footer-copy-right text-center">
+								<p>
+									Copyright &copy;
+									<script>document.write(new Date().getFullYear());</script> Todos los Derechos
+									Reservados |
+									Hecho por <i class="fa fa-heart" aria-hidden="true"></i> Marcos Suarez-Jhon Orrego
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer End-->
+	</footer>
+	<!-- JS here -->
+	<script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+	<!-- Jquery, Popper, Bootstrap -->
+	<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- Jquery Mobile Menu -->
+	<script th:src="@{/js/jquery.slicknav.min.js}"></script>
+	<!-- Jquery Slick , Owl-Carousel Plugins -->
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/slick.min.js}"></script>
+	<!-- One Page, Animated-HeadLin -->
+	<script th:src="@{/js/wow.min.js}"></script>
+	<script th:src="@{/js/animated.headline.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.js}"></script>
+	<!-- Date Picker -->
+	<script th:src="@{/js/gijgo.min.js}"></script>
+	<!-- Nice-select, sticky -->
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<!-- counter , waypoint,Hover Direction -->
+	<script th:src="@{/js/jquery.counterup.min.js}"></script>
+	<script th:src="@{/js/waypoints.min.js}"></script>
+	<script th:src="@{/js/jquery.countdown.min.js}"></script>
+	<script th:src="@{/js/hover-direction-snake.min.js}"></script>
+	<!-- contact js -->
+	<script th:src="@{/js/contact.js}"></script>
+	<script th:src="@{/js/jquery.form.js}"></script>
+	<script th:src="@{/js/jquery.validate.min.js}"></script>
+	<script th:src="@{/js/mail-script.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<!-- Jquery Plugins, main Jquery -->
+	<script th:src="@{/js/plugins.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
