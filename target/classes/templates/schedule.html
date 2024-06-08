@@ -56,18 +56,25 @@
 								<!-- Main-menu -->
 								<div class="main-menu f-right d-none d-lg-block">
 									<nav>
-										<ul id="navigation">
-											<li><a th:href="@{/index/}">Inicio</a></li>
-											<li><a th:href="@{/about/}">Conocenos</a></li>
-											<li><a th:href="@{/services/}">Servicios</a></li>
-											<li><a th:href="@{/about/}">Horarios</a></li>
-											<li><a th:href="@{/gallery/}">Galeria</a></li>
-											<li><a th:href="@{/Precios/}">Precios</a></li>
+																		<ul id="navigation">
+																			<li><a th:href="@{/Clientes/Inicio/{id}(id=${id})}">Inicio</a></li>
+																			<li><a th:href="@{/Clientes/about/{id}(id=${id})}">Conocenos</a></li>
+																			<li><a th:href="@{/Clientes/services/{id}(id=${id})}">Servicios</a></li>
+																			<li><a th:href="@{/Clientes/schedule/{id}(id=${id})}">Horarios</a></li>
+																			<li><a th:href="@{/Clientes/gallery/{id}(id=${id})}">Galeria</a></li>
+																			<li><a th:href="@{/Clientes/Precios/{id}(id=${id})}">Precios</a></li>
 
-											</li>
-											<li><a th:href="@{/contact/}">Contactanos</a></li>
-										</ul>
-									</nav>
+																			</li>
+																			<li><a th:href="@{/Clientes/contact/{id}(id=${id})}">Contactanos</a></li>
+																			<li>
+																			<li>
+																				<a th:href="@{/Clientes/edit/{id}(id=${id})}">Ediiitar</a>
+																			</li>
+
+																			</li>
+
+																		</ul>
+																	</nav>
 								</div>
 								<div class="header-right-btn f-right d-none d-lg-block ml-30">
 								<a th:href="@{/index/}" class="btn header-btn">Cerrar Sesion</a>

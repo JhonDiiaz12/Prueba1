@@ -25,13 +25,17 @@ public class Cliente {
 	
 	private String peso;
 	
-	private String estadoPlan;
+	private String estadoPlan = "EN ESPERA";
 	
 
 	private String usuario;
 	
 
 	private String password;
+	
+	  private String fechaInicio;
+	  
+	    private String fechaFin;
 	
 	
 	//CONSTRUCTOR
@@ -116,6 +120,26 @@ public class Cliente {
 
 	public void setEstadoPlan(String estadoPlan) {
 		this.estadoPlan = estadoPlan;
+	}
+
+
+	public String getFechaInicio() {
+		return fechaInicio;
+	}
+
+
+	public void setFechaInicio(String fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+
+	public String getFechaFin() {
+		return fechaFin;
+	}
+
+
+	public void setFechaFin(String fechaFin) {
+		this.fechaFin = fechaFin;
 	}
 
 	

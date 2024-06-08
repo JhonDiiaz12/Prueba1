@@ -2,6 +2,8 @@ package com.TrabajoFinalJMFIT.controller;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller; // Agregada esta importación
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.TrabajoFinalJMFIT.entity.Cliente;
 import com.TrabajoFinalJMFIT.exception.NotFoundException;
 import com.TrabajoFinalJMFIT.repository.ClienteRepository;
+
+import jakarta.servlet.http.HttpSession;
 @SuppressWarnings("unused")
 @Controller // Asegúrate de agregar la anotación @Controller
 @RequestMapping("/Clientes")
@@ -29,6 +33,7 @@ public class ClientePagController {
 	@GetMapping("/")
 	public String clienteListTemplate(Model model) {
 		model.addAttribute("clientes", clienteRepository.findAll());
+		
 		return "Clienteform";
 	}
 
@@ -42,16 +47,94 @@ public class ClientePagController {
 	public String clienteEditTemplate(@PathVariable("id") String id, Model model) {
 		model.addAttribute("clientes",
 				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
-		return "Sesion";
+		return "Editar";
+	}
+	@GetMapping("/services/{id}")
+	public String mostrarServicios(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "services"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/Precios/{id}")
+	public String mostrarPrecios(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "Precios"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/gallery/{id}")
+	public String mostrargallery(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "gallery"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/schedule/{id}")
+	public String mostrarschedule(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "schedule"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/Inicio/{id}")
+	public String mostrarInicio(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "Inicio"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/about/{id}")
+	public String mostrarAbout(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "about"; // Nombre de la vista para mostrar los servicios
+	}
+	@GetMapping("/contact/{id}")
+	public String mostrarcontact(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+	 
+	    
+	    return "contact"; // Nombre de la vista para mostrar los servicios
+	}
+
+	
+	@GetMapping("/edit1/{id}")
+	public String clienteEditsTemplate(@PathVariable("id") String id, Model model) {
+		model.addAttribute("clientes",
+				clienteRepository.findById(id).orElseThrow(() -> new NotFoundException("Estudiante no encontrado")));
+		return "Clientecom";
 	}
 	@PostMapping("/salvar")
 	public String AdminSalvarProcess(@ModelAttribute("cliente") Cliente cliente) {
 	    if (cliente.getId().isEmpty()) {
 	        cliente.setId(null);
 	    }
+	    
 	    clienteRepository.save(cliente);
 	    return "redirect:/Login";
 	}
+	@PostMapping("/salvar2")
+	public String AdminSalvar(@ModelAttribute("cliente") Cliente cliente) {
+	    if (cliente.getId().isEmpty()) {
+	        cliente.setId(null);
+	    }
+	    
+	    clienteRepository.save(cliente);
+	    return "redirect:/Login";
+	}
+	
+	
+	
+	
 
 
 
@@ -76,18 +159,21 @@ public class ClientePagController {
 	    clienteRepository.save(cliente);
 	    return "redirect:/Clientes/"; // Redirige a la página de clientes después de actualizar el estado del plan
 	}
-
+	
+	
 	@PostMapping("/ingresar")
 	public String login(@RequestParam("usuario") String usuario,
-	        @RequestParam("password") String password, Model model) {
+	                    @RequestParam("password") String password, 
+	                    HttpSession session, Model model) {
 	    // Verificar las credenciales
-	    System.out.println("usuario: " + usuario + " password:" + password);
-
 	    Cliente cliente = clienteRepository.findByUsuario(usuario);
 	    if (cliente != null && cliente.getPassword().equals(password)) {
-	        return "Inicio"; // Redirigir a la página principal si las credenciales son válidas
-	    } else {
-	        // Inicio de sesión fallido, mostrar mensaje de error en la página de inicio
+	        // Si las credenciales son válidas, almacenar el ID en el modelo
+	        model.addAttribute("id", cliente.getId());
+	        // Redirigir a la página de inicio
+	        return "Inicio";
+	    } else { 
+	        // Inicio de sesión fallido, mostrar mensaje de error en la página de inicio de sesión
 	        model.addAttribute("authenticationFailed", true);
 	        model.addAttribute("errorMessage", "Usuario o contraseña incorrectos");
 	        return "Login";
@@ -96,6 +182,14 @@ public class ClientePagController {
 
 
 
+
 	
 
-}
+
+	}
+
+
+
+	
+
+

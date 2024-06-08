@@ -60,6 +60,7 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
                            required>
                 </div>
+				<input type="hidden" name="id" value="${id}" />
                 <div th:if="${authenticationFailed}" style="color: red;">
                     <p th:text="${errorMessage}"></p>
                 </div>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>Pruebas Saber</title>
+
+
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+		type="text/css" />
+
+	<style>
+		body {
+			color: #000;
+			overflow-x: hidden;
+			height: 100%;
+
+			background-position: center center;
+			background-attachment: fixed;
+			font-family: 'Righteous', cursive;
+		}
+
+		.card {
+			padding: 30px 40px;
+			margin-top: 60px;
+			margin-bottom: 60px;
+			border: none !important;
+			box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+		}
+
+		.blue-text {
+			color: #00BCD4
+		}
+
+		.form-control-label {
+			margin-bottom: 0
+		}
+
+		input,
+		textarea,
+		button {
+			padding: 8px 15px;
+			border-radius: 5px !important;
+			margin: 5px 0px;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			font-size: 18px !important;
+			font-weight: 300
+		}
+
+		input:focus,
+		textarea:focus {
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			border: 1px solid #00BCD4;
+			outline-width: 0;
+			font-weight: 400
+		}
+
+		.btn-block {
+			text-transform: uppercase;
+			font-size: 15px !important;
+			font-weight: 400;
+			height: 43px;
+			cursor: pointer
+		}
+
+		.btn-block:hover {
+			color: #fff !important
+		}
+
+		button:focus {
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			outline-width: 0
+		}
+
+		main {
+			width: 40%;
+			/* Establecer el ancho del main al 80% del ancho del viewport */
+			height: 600px;
+			/* Establecer la altura del main en 500px */
+			display: flex;
+			justify-content: center;
+			/* Centrar horizontalmente */
+			align-items: center;
+			/* Centrar verticalmente */
+			background-color: white;
+			/* Establecer el fondo blanco */
+			padding: 30px;
+			/* Añadir un poco de espacio alrededor del contenido */
+			margin: 250px auto;
+			/* Ajustar el espacio: 50px arriba y abajo, centrado horizontalmente */
+		}
+
+		.button-container {
+			text-align: center;
+			/* Centrar horizontalmente el contenido */
+			margin-top: 30px;
+			/* Espacio superior para separar el botón de los campos de entrada */
+		}
+
+		.cont {
+			/* Centrar el div 'cont' dentro del main */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.cont-form {
+			/* Centrar el div 'cont-form' dentro del div 'cont' */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			/* Alinear los elementos en columna */
+		}
+	</style>
+
+
+</head>
+
+<body
+	style="background-image: url('https://blog.bewe.io/hubfs/Imported%20sitepage%20images/2019-08-preguntas-para-encuestas-de-satisfaccion-al-cliente-full.jpg'); background-size: cover; background-repeat: no-repeat;">
+	<main>
+		<div class="cont">
+			<div class="cont-form">
+				<h1 class="titulo">Informacion Cliente</h1>
+
+				<form th:action="@{/Clientes/salvar}" th:object="${clientes}" method="post" class="formulario">
+					<input type="hidden" th:field="*{id}">
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="nombre">Nombres: </label>
+						<input type="text" class="form-control entrada" id="nombre" th:field="*{nombre}"
+							placeholder="Nombre" required>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="apellidos">Apellidos: </label>
+						<input type="text" class="form-control entrada" id="apellidos" th:field="*{apellidos}"
+							placeholder="Apellidos" required>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="documento">Correo: </label>
+						<input type="text" class="form-control entrada" id="email" th:field="*{email}"
+							placeholder="Correo" required>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="celular">Peso Kg: </label>
+						<input type="text" class="form-control entrada" id="peso" th:field="*{peso}" placeholder="Peso"
+							required>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="user">Plan </label>
+						<input type="text" class="form-control entrada" id="estadoPlan" th:field="*{estadoPlan}"
+							placeholder="Estado Plan" readonly>
+					</div>
+
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="fechaInicio">Fecha de Inicio: </label>
+						<input type="date" class="form-control entrada" id="fechaInicio" th:field="*{fechaInicio}"
+							readonly>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="fechaFin">Fecha de Fin: </label>
+						<input type="date" class="form-control entrada" id="fechaFin" th:field="*{fechaFin}" readonly>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="user">Usuario: </label>
+						<input type="text" class="form-control entrada" id="usuario" th:field="*{usuario}"
+							placeholder="Usuario" required>
+					</div>
+					<div class="grupo" style="font-family: 'Roboto Slab', serif;">
+						<label for="password">Contraseña: </label>
+						<input type="text" class="form-control entrada" id="password" th:field="*{password}"
+							placeholder="Contraseña" required>
+					</div>
+					<div class="button-container">
+						<button class="button" type="submit">AGREGAR</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</main>
+
+</body>
+
+</html>

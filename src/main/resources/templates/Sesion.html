@@ -17,6 +17,7 @@
             </div>
             <form th:action="@{/Clientes/salvar}" th:object="${clientes}" method="post">
                 <input type="hidden" th:field="*{id}">
+				<input type="hidden" th:field="*{estadoPlan}" value="EN ESPERA">
                 <h3>Únete a JMFIT</h3>
                 <div class="form-row">
                     <input type="text" class="form-control" id="nombre" placeholder="Nombre" th:field="*{nombre}" required name="nombre">

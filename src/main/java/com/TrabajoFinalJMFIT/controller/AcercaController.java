@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/about")
+@RequestMapping("/abouts")
 public class AcercaController {
 
     @GetMapping("/")
     public String defaultHome(Model model) {
-        return "about";
+        return "abouts";
     }
 
 
